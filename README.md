@@ -47,13 +47,13 @@ define('DirectoryChanged',false); // تنبيه عند حدوث تغيير في 
 
 # صور 
 ###### `جوال`
-![alt tag](https://raw.githubusercontent.com/onexite/ScriptUploadFiles/master/Android-screencapture.png)
+![alt tag](https://raw.githubusercontent.com/JubaDZ/ScriptUploadFiles/master/Android-screencapture.png)
 
 ###### `لوحة الكترونية`
-![alt tag](https://raw.githubusercontent.com/onexite/ScriptUploadFiles/master/Tablets-screencapture.png)
+![alt tag](https://raw.githubusercontent.com/JubaDZ/ScriptUploadFiles/master/Tablets-screencapture.png)
 
 ###### `كمبيوتر محمول`
-![alt tag](https://raw.githubusercontent.com/onexite/ScriptUploadFiles/master/MacBook-screencapture.png)
+![alt tag](https://raw.githubusercontent.com/JubaDZ/ScriptUploadFiles/master/MacBook-screencapture.png)
 
 # Download
 ##### [اضغط هنا لتحميل اخر نسخة](https://github.com/onexite/ScriptUploadFiles/archive/master.zip)
