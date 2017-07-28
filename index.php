@@ -196,8 +196,4 @@ mysqliClose_freeVars() ;
 foreach (array_keys(get_defined_vars()) as $var) 
 	unset($$var);
 unset($var);
-<<<<<<< HEAD
 ?>
-=======
-?>
->>>>>>> origin/master
