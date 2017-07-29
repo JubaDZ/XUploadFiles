@@ -1,7 +1,7 @@
 <?php
 (file_exists('../includes/config.php')) ? require_once ('../includes/config.php') : '';
 require_once ('./ini.php');	
-require_once ('../includes/csscolor.php');	
+require_once ('../includes/csscolor.php');// file doesn't exist in includes folder  !!	
 require_once ('../includes/session.php');
 require_once ('../includes/functions.php');
 require_once ('../includes/connect.php');
