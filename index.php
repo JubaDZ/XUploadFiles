@@ -117,8 +117,10 @@ elseif(isGet('authorized') )
     ( !IsLogin && authorized ) ? require_once ('./modals/authorization.php') : Need_Logout() ;  
 elseif(isGet('login')) 
     ( !IsLogin  ) ? require_once ('./modals/login.php') : Need_Logout() ;  
-elseif(isGet('register') ) 
-    ( !IsLogin && register ) ? require_once ('./modals/register.php') : Need_Logout() ;  	
+elseif(isGet('register') && IsLogin) 
+    ( register) ? require_once ('./modals/register.php') : Need_Logout() ;   
+elseif(isGet('register') && !IsLogin) 
+    ( register ) ? require_once ('./modals/register.php') : Registration_Disabled() ;  	
 elseif(isGet('forgot')) 
     ( !IsLogin  ) ? require_once ('./modals/forgot.php') : Need_Logout() ;  
 elseif(isGet('contact') ) 	
