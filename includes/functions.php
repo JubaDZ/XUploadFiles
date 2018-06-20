@@ -72,7 +72,7 @@ function CheckConnect()
 		define('rtlsitename','موقعي للرفع');
 		//define('InterfaceLanguage','ar');
 		define('siteclose','1');
-		IsRtL() ? define('closemsg',' الموقع مغلق للصيانة ' . mysqli_connect_error()) : define('closemsg','Closed for maintenance ' . mysqli_connect_error()); 
+		IsRtL() ? define('closemsg',' الموقع مغلق للصيانة ' .'<br><code>'. mysqli_connect_error().'</code>') : define('closemsg','Closed for maintenance ' .'<br><code>'. mysqli_connect_error().'</code>'); 
 	}
 
 }
@@ -86,23 +86,23 @@ function mysqliconnect($database = true)
 
 function Sql_mode($STRICT_TRANS_TABLES='NO_ENGINE_SUBSTITUTION')
 {
-	global $conn;
-	return $conn ? Sql_query("SET SESSION sql_mode = '$STRICT_TRANS_TABLES'") : false; 
+	global $connection;
+	return $connection ? Sql_query("SET SESSION sql_mode = '$STRICT_TRANS_TABLES'") : false; 
 }
 
 
 function mysqliClose_freeVars()
 { 
-    global $conn;
-mysqli_close($conn);
+    global $connection;
+mysqli_close($connection);
 foreach (array_keys(get_defined_vars()) as $var) 
 	        unset($$var);
 			
 }
 function affected_rows()
 { 
-    global $conn;
-	return (mysqli_affected_rows($conn)>0) ? true : false;
+    global $connection;
+	return (mysqli_affected_rows($connection)>0) ? true : false;
 }
 
 function TableExists($table) {
@@ -186,7 +186,15 @@ function glyphiconIsPublic($status)
 	return	$status ? '<i class="glyphicon glyphicon-eye-open"></i>' : '<i class="glyphicon glyphicon-eye-close"></i>';
 }
 
+
+function ipaddress_to_ipnumber($ip) {
+	list($ip1,$ip2,$ip3,$ip4)= explode(":",$ip);
+    return hexdec($ip1). "." . hexdec($ip2). "." . hexdec($ip3). "." . hexdec($ip4);
+}
+
+
 function iptolong($ip){
+	if (count(explode(":",$ip)) > 0  ) return 0 ;
     list($ip1,$ip2,$ip3,$ip4)= explode(".",$ip);
     $ipLong= $ip1*pow(256,3)+$ip2*pow(256,2)+$ip3*256+$ip4;
     return $ipLong;
@@ -345,8 +353,9 @@ if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
 
 function getLocationInfoByIp(){
 
-	$result  = array('countryName'=>'Unknown', 'countryCode'=>'UN', 'city'=>'Unknown','ip'=>ip());
+	 $result  = array('countryName'=>'Unknown', 'countryCode'=>'UN', 'city'=>'Unknown', 'ip'=>ip() ,'iptolong' =>iptolong( defined('VisitorIp') ? VisitorIp : ip() ));
 	/*---------------------------------------------------------------------------------------------*/
+	if(defined('VisitorIp')) 
 	if((VisitorIp==ip()) && defined('VisitorCountryName') && defined('VisitorCity') && defined('VisitorCountryCode') )
 		return array('countryName'=>VisitorCountryName, 
 		             'countryCode'=>VisitorCountryCode,
@@ -362,7 +371,7 @@ function getLocationInfoByIp(){
 		$result['countryCode'] = $ip_data['countryCode'];
 		$result['city']        = $ip_data['cityName'];	
 		$result['ip']          = $ip_data['ipAddress'];
-		$result['iptolong']     = iptolong( $ip_data['ipAddress'] );
+		$result['iptolong']    = iptolong( $ip_data['ipAddress'] );
 		}
 		
 	 $_SESSION['settings']["visitor"]["ip"]          = $result['ip'];
@@ -376,9 +385,10 @@ function getLocationInfoByIp(){
  function getLocationInfoByIp_2()//Geo
  {
 	 
-	 $result  = array('countryName'=>'Unknown', 'countryCode'=>'UN', 'city'=>'Unknown', 'ip'=>ip() ,'iptolong' =>iptolong(VisitorIp));
+	 $result  = array('countryName'=>'Unknown', 'countryCode'=>'UN', 'city'=>'Unknown', 'ip'=>ip() ,'iptolong' =>iptolong( defined('VisitorIp') ? VisitorIp : ip() ));
 
 	/*---------------------------------------------------------------------------------------------*/
+	if(defined('VisitorIp')) 
 	if((VisitorIp==ip()) && defined('VisitorCountryName') && defined('VisitorCity') && defined('VisitorCountryCode') )
 		return array('countryName'=>VisitorCountryName, 
 		             'countryCode'=>VisitorCountryCode,
@@ -583,6 +593,11 @@ function folderSize ($dir)
     return $size;
 }
 
+function Registration_Disabled() {
+	global $lang;
+	echo '<i class="glyphicon glyphicon-question-sign"></i> ' . $lang[256] ;
+}
+
 function Need_Login() {
 	global $lang;
 	echo '<i class="glyphicon glyphicon-question-sign"></i> ' . $lang[49] ;
@@ -593,7 +608,7 @@ function Need_Logout() {
 	echo '<i class="glyphicon glyphicon-question-sign"></i> ' . $lang[196] ;
 }
 function Get_Ads($ads_page) {
-	global $conn,$lang; 
+	global $connection,$lang; 
 	include ('./modals/poster.php') ;
 }
 
@@ -785,13 +800,13 @@ function nbrOnly($s)
 
 function Sql_query($query)
 {
-global $conn;	 
-return @mysqli_query($conn,$query);                 		 
+global $connection;	 
+return @mysqli_query($connection,$query);                 		 
 }
 
 function num_rows($query)
 { 
-   return mysqli_num_rows($query);                 		 
+   return @mysqli_num_rows($query);                 		 
 }
 
 function fetch_assoc($query,$data)
@@ -978,8 +993,8 @@ function Sql_Update_File($filename,$size,$passwordfile,$ispublic)
 
 function Sql_Last_query_id()
 {
- global $conn;
-	 return $conn ? mysqli_insert_id($conn) : 0; 
+ global $connection;
+	 return $connection ? mysqli_insert_id($connection) : 0; 
 }
 
 function Sql_Delete_File($id)
@@ -1224,6 +1239,37 @@ return fetch_assoc(Sql_query("SELECT `status` FROM `comments` WHERE `id`= '$id'"
 }
 
 
+function banned_ips($ip) 
+{	
+
+
+$qry = Sql_query("SELECT * FROM `banned_ips` WHERE `ip`= '". $ip."'");
+if(num_rows($qry)>0)
+{
+	// deny user access
+$row = mysqli_fetch_assoc($qry);
+define('siteclose','1');
+define('closemsg','<code>'.$ip.'</code> : You have been banned from this website until .' .'<br><code>'. $row['length'].'</code> If you feel this is in error, please contact the webmaster');
+mysqli_free_result($qry);
+}
+
+}
+
+function banned_countries($countryCode,$CountryName) 
+{	
+
+$qry = Sql_query("SELECT * FROM `banned_countries` WHERE `country`= '". $countryCode."'");
+if(num_rows($qry)>0)
+{
+	// deny user access
+$row = mysqli_fetch_assoc($qry);
+define('siteclose','1');
+define('closemsg','<code>'.$CountryName.'</code> : You have been banned from this website until .' .'<br><code>'. $row['length'].'</code> If you feel this is in error, please contact the webmaster');
+mysqli_free_result($qry);
+
+}
+}
+
 function Sql_user_Get_info($userName)
 {	
 $userName  = protect($userName);
@@ -1310,8 +1356,8 @@ function jsonSave($directory,$filename,$orgfilename,$file_id,$file_size,$last_ac
   $json['Files'][$file_id]['orgfilename']   = $orgfilename;
   $json['Files'][$file_id]['last_access']   = $last_access;
   $json['Files'][$file_id]['uploaded_date'] = $uploaded_date;
-  $json['Files'][$file_id]['delete_date']= timestamp();
-  $json['Files'][$file_id]['delete_ip']  = iplong();
+  $json['Files'][$file_id]['delete_date'] = (string)timestamp();
+  $json['Files'][$file_id]['delete_ip']  = (string)iplong();
   file_put_contents($saveName, json_encode($json,TRUE));
 }
 
@@ -1764,7 +1810,7 @@ function sqlUpdate($_url_json_sql)
     $status_html="";
 	
 	if(IsAdmin) {
-		if(version!=$_get_version)
+		if(scriptversion!=$_get_version)
 			$status_html = '<div class="alert alert-success" >'.$lang[79].' <strong>'.$lang[104].'</strong> </div>';
 	}
 	
