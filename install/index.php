@@ -491,7 +491,7 @@ $host_base = protect($_POST['host_base']);
 
 $conn =  mysqli_connect($host , $host_user, $host_pass);
 if($conn)
-	Sql_query("CREATE DATABASE IF NOT EXISTS ".$host_base);
+	mysqli_query($conn,"CREATE DATABASE IF NOT EXISTS `".$host_base."`");
 
 if($fp = fopen('../includes/config.php','w')){
 	$content = "<?php
