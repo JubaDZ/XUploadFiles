@@ -256,5 +256,6 @@ $lang[252] =  'Installation';
 $lang[253] =  'Animated';
 $lang[254] =  'Captcha';
 $lang[255] =  'Key';
-
+$lang[256] =  'Sorry, registration has been disabled by the administrator';
+$lang[257] =  'Premium Access Only';
 ?>
