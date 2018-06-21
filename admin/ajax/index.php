@@ -54,7 +54,7 @@ $ThumbnailDir    = (thumbnail) ? '../..'.uploadDir.'/_thumbnail/'.get_thumbnail(
 
 (defined('HashCode') && HashCode !== $code )            ? IePrintArray(array('success' => false, 'msg' => $lang[103].' / HashCode'  )) : '' ; 
 ($_new_ext !== $_old_ext)                               ? IePrintArray(array('success' => false, 'msg' => $lang[120] )) : '' ;  
-(!file_exists('../..'. $_folder .'/'.$_UploadFileName)) ? IePrintArray(array('success' => false, 'msg' => $lang[46] )) : '' ;   
+//(!file_exists('../..'. $_folder .'/'.$_UploadFileName)) ? IePrintArray(array('success' => false, 'msg' => $lang[46] )) : '' ;   
 
 //@unlink('../..'. uploadDir.'/'.$_UploadFileName);
 
@@ -85,6 +85,8 @@ if (!$result)
  {
      Sql_Update_File($Upload->getFileName(),$Upload->getFileSize(),$passwordfile,$ispublic);
      IePrintArray(array('success' => true, 'FileName' => $Upload->getFileName() ,'Size' => $Upload->getFileSize() ,'SavedFile' => $Upload->getSavedFile() , 'Extension' => $Upload->getExtension() ) ) ;
+	 //Clear cache and check filesize again
+	 clearstatcache();
  }
 }
 
@@ -168,7 +170,7 @@ if ($result=Sql_query($sql))
 $data['success_msg'] = $html;
 $data['success_totalpages'] = $totalpages ;
 mysqli_free_result($result);
-mysqli_close($conn);
+mysqli_close($connection);
 PrintArray($data) ;
 
 }
@@ -341,7 +343,7 @@ if ($result=Sql_query("SELECT DISTINCT `file_id` FROM `stats` ORDER BY $order_st
 $data['success_msg'] = $html;
 $data['success_totalpages'] = $totalpages ;
 mysqli_free_result($result);
-mysqli_close($conn);
+mysqli_close($connection);
 PrintArray($data) ;
 
 }
@@ -405,7 +407,7 @@ if ($result=Sql_query($sql))
 $data['success_msg'] = $html;
 $data['success_totalpages'] = $totalpages ;
 mysqli_free_result($result);
-mysqli_close($conn);
+mysqli_close($connection);
 PrintArray($data) ;
 }
 
@@ -450,7 +452,7 @@ while($row = mysqli_fetch_assoc($result))
 $data['success_msg'] = $html;
 $data['success_totalpages'] = 1 ;
 mysqli_free_result($result);
-mysqli_close($conn);
+mysqli_close($connection);
 PrintArray($data) ;
 }	
 //*********************************************	
@@ -519,7 +521,7 @@ if ($result=Sql_query($sql))
 $data['success_msg'] = $html;
 $data['success_totalpages'] = $totalpages ;
 mysqli_free_result($result);
-mysqli_close($conn);
+mysqli_close($connection);
 PrintArray($data) ;
 }
 
@@ -578,7 +580,7 @@ if ($result=Sql_query($sql))
 $data['success_msg'] = $html;
 $data['success_totalpages'] = $totalpages ;
 mysqli_free_result($result);
-mysqli_close($conn);
+mysqli_close($connection);
 PrintArray($data) ;
 }
 
@@ -684,7 +686,7 @@ $data['success_msg'] = $html;
 $data['success_totalpages'] = $totalpages ;
 if($result)
 mysqli_free_result($result);
-mysqli_close($conn);
+mysqli_close($connection);
 PrintArray($data) ;
 
 }
