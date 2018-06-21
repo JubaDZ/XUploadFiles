@@ -65,7 +65,7 @@ $lang[61] =  'Are you sure you want to log-off?';
 $lang[62] =  'Folder';
 $lang[63] =  'Folder Uploads';
 $lang[64] =  'Site close';
-$lang[65] =  'Enable user folder';
+$lang[65] =  'User Folder';
 $lang[66] =  'Time zone';
 $lang[67] =  'Prefix name';
 $lang[68] =  'Language';
@@ -258,4 +258,5 @@ $lang[254] =  'Captcha';
 $lang[255] =  'Key';
 $lang[256] =  'Sorry, registration has been disabled by the administrator';
 $lang[257] =  'Premium Access Only';
+$lang[258] =  'Enable ';
 ?>
