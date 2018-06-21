@@ -29,10 +29,6 @@ define('thumbnail','1');
 define('days_older','30');
 define('maxUploads','1');
 define('multiple','1');
-define('deletelink','1');
-define('EnableComments','1');
-define('EnableCaptcha','0');
-define('animated','1');
 
 //define('dbprefix','db_');
 (!defined('dbhost')) ? define('dbhost','localhost'): '';
@@ -40,6 +36,6 @@ define('animated','1');
 (!defined('dbpass')) ? define('dbpass',''): ''; 
 (!defined('dbname')) ? define('dbname','db_uploads'): ''; 
 
-define('keywords','online storage,free storage,cloud Storage,collaboration,backup file Sharing,share Files,photo backup,photo sharing,ftp replacement,cross platform,remote access,mobile access,send large files,recover files,file versioning');	
-define('description','free service that lets you put all your photos, documents, music, and video in a single place so you can access them anywhere and share them everywhere.');	
+define('keywords','online storage,free storage,cloud Storage,share Files,photo sharing,send large files');	
+define('description','Free service that lets you put all your files.');	
 ?>
