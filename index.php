@@ -31,7 +31,7 @@ require_once ('./includes/afterincludes.php');
     <link href="./assets/css/styles.css" rel="stylesheet" type="text/css">
 	<link href="./assets/css/fontello.min.css" rel="stylesheet" type="text/css">
 	<link href="./assets/css/sticky.min.css" rel="stylesheet" type="text/css" />
-	<link href="./includes/styles.php" rel="stylesheet" type="text/css">
+	<!--<link href="./includes/styles.php" rel="stylesheet" type="text/css">-->
 	<?php if(animated){ ?>    
 	<link href="./assets/css/animate.min.css" rel="stylesheet" type="text/css">
 	<?php } ?>
@@ -79,7 +79,6 @@ isGet('403') ? exit(require_once ('./modals/403.php')) : '';
 <div class="col-sm-9 col-md-9" id="container">	
 
 <?php 
-Get_Ads('ads_google' ) ; 
 GetIsEmpty ? Get_Ads ('ads_index') : '';
 isGet('download') ? Get_Ads ('ads_download') : '';
 ?>
@@ -116,11 +115,12 @@ elseif(isGet('profile'))
 elseif(isGet('authorized') ) 
     ( !IsLogin && authorized ) ? require_once ('./modals/authorization.php') : Need_Logout() ;  
 elseif(isGet('login')) 
-    ( !IsLogin  ) ? require_once ('./modals/login.php') : Need_Logout() ;  
+    ( !IsLogin  ) ? require_once ('./modals/login.php') : Need_Logout() ;
 elseif(isGet('register') && IsLogin) 
     ( register) ? require_once ('./modals/register.php') : Need_Logout() ;   
 elseif(isGet('register') && !IsLogin) 
     ( register ) ? require_once ('./modals/register.php') : Registration_Disabled() ;  	
+ 
 elseif(isGet('forgot')) 
     ( !IsLogin  ) ? require_once ('./modals/forgot.php') : Need_Logout() ;  
 elseif(isGet('contact') ) 	
@@ -162,7 +162,7 @@ else
 ?> 
 <!-- JavaScript -->
 
-    <script src="./modals/jsvariables.php<?php echo (!empty(QUERY))? '?'.QUERY:'' ?>" type="text/javascript"></script>
+    <script src="./modals/jsvariables.php<?php echo (defined('QUERY') && strlen(QUERY) > 0 )? '?'.QUERY:'' ?>" type="text/javascript"></script>
     <!--<script src="./assets/js/modernizr-2.6.2-respond-1.1.0.min.js" type="text/javascript"></script>-->
 	<!--<script src="./assets/js/jquery-ui.min.js" type="text/javascript"></script>-->
 	<script src="./assets/js/jquery.min.js" type="text/javascript"></script>
