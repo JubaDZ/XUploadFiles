@@ -4,9 +4,9 @@ require_once ('config.php');
 define('PlanId',0 );
 define('UserID',0 );
 require_once ('functions.php');
-$conn=mysqliconnect();
+$connection = mysqliconnect();
 // Change character set to utf8
-//$conn ? mysqli_set_charset($conn,"utf8") : '';
+//$connection ? mysqli_set_charset($connection,"utf8") : '';
 /*
 Sql_query("SET NAMES 'utf8'");
 Sql_query("SET CHARACTER SET utf8");*/

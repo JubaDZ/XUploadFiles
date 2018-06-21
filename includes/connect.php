@@ -2,14 +2,17 @@
 // Report all errors
 /*error_reporting(E_ALL);*/
 /*------------ini-------------------*/
-$conn=mysqliconnect();
+$connection = mysqliconnect();
+$InfoByIp   = getLocationInfoByIp_2();
 LoadUserSettings();
+banned_ips($InfoByIp['iptolong']);
+banned_countries($InfoByIp['countryCode'],$InfoByIp['countryName']);
 Loadconfig();
 LoadApiConfig();
 CheckConnect();
 Sql_mode();
 // Change character set to utf8
-//$conn ? mysqli_set_charset($conn,"utf8") : '';
+//$connection ? mysqli_set_charset($connection,"utf8") : '';
 
 /*
 days_older_parameter
