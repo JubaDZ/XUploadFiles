@@ -1,4 +1,4 @@
-<?php if(!isset($conn)) die('<title>Access Denied</title><i>This page cannot be accessed directly'); ?>
+<?php if(!isset($connection)) die('<title>Access Denied</title><i>This page cannot be accessed directly</i>'); ?>
 <?php (!defined('Extensions_Str')) ? define('Extensions_Str' , extensionsStr() ) : '' ;
       (!defined('IsAdminPage')) ? define('IsAdminPage',false) : '';  ?>
        <div class="extensions <?php echo ClassAnimated ?> bounceInDown">
@@ -21,8 +21,11 @@
 			
 			
 	   </div>
+	   <div class="UploadOptions">
 	   <input type="hidden" id="File_Password" value="">
 	   <?php if(IsLogin) { ?>
 	   <input id="isPublic" type="checkbox" checked data-toggle="toggle" data-size="mini" data-on="<?php echo $lang[176]?>" data-off="<?php echo $lang[177]?>">&nbsp;
 	   <?php } ?>
 	   <span><i  class="glyphicon glyphicon-lock"></i>  <a href="javascript:void(0)" onclick="FileSetPassword()" id="SetPassword"><?php echo $lang[37]?></a></span>
+	   </div>
+	   <?php !IsAdminPage ? Get_Ads('ads_google' ) : '' ; ?>

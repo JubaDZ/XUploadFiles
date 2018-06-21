@@ -1,4 +1,4 @@
-<?php if(!isset($conn)) die('<title>Access Denied</title><i>This page cannot be accessed directly'); ?>
+<?php if(!isset($connection)) die('<title>Access Denied</title><i>This page cannot be accessed directly</i>'); ?>
   <ul class="nav nav-tabs">
         <li class="active"><a data-toggle="tab" href="#Tababout"><?php echo $lang[19] ?></a></li>
         <li><a data-toggle="tab" href="#Tabterms"><?php echo $lang[152] ?></a></li>
