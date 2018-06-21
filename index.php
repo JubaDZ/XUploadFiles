@@ -31,7 +31,7 @@ require_once ('./includes/afterincludes.php');
     <link href="./assets/css/styles.css" rel="stylesheet" type="text/css">
 	<link href="./assets/css/fontello.min.css" rel="stylesheet" type="text/css">
 	<link href="./assets/css/sticky.min.css" rel="stylesheet" type="text/css" />
-	<!--<link href="./includes/styles.php" rel="stylesheet" type="text/css">-->
+	<link href="./includes/styles.php" rel="stylesheet" type="text/css">
 	<?php if(animated){ ?>    
 	<link href="./assets/css/animate.min.css" rel="stylesheet" type="text/css">
 	<?php } ?>
