@@ -1,4 +1,4 @@
- <?php if(!isset($conn)) die('<title>Access Denied</title><i>This page cannot be accessed directly'); ?>
+ <?php if(!isset($connection)) die('<title>Access Denied</title><i>This page cannot be accessed directly</i>'); ?>
  <?php if(!defined('IsAdminPage')) define('IsAdminPage',false); ?>
  <!-- FileInfosModal -->
   <div class="modal fade" id="FileInfosModal" role="dialog">

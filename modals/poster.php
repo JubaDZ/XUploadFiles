@@ -1,4 +1,4 @@
-<?php if(!isset($conn)) die('<title>Access Denied</title><i>This page cannot be accessed directly'); ?>  
+<?php if(!isset($connection)) die('<title>Access Denied</title><i>This page cannot be accessed directly</i>'); ?>  
 <?php 
 $info             = IsGet('download') ? Sql_Get_info(protect(Decrypt($_GET['download']))) : array('status'=>false);
 $publicity        = Sql_Get_publicity($ads_page); 

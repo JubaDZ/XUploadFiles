@@ -1,4 +1,4 @@
-<?php if(!isset($conn)) die('<title>Access Denied</title><i>This page cannot be accessed directly'); ?>
+<?php if(!isset($connection)) die('<title>Access Denied</title><i>This page cannot be accessed directly</i>'); ?>
 <div class="table-responsive <?php echo ClassAnimated ?> swing">
   <table class="table table-hover">
     <tbody>	
@@ -129,7 +129,7 @@ else
 //unset($DownloadID);
 unset($_crypt_id);
 
-//mysqli_close($conn);
+//mysqli_close($connection);
 
 ?>
 

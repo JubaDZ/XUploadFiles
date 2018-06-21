@@ -1,4 +1,4 @@
-<?php if(!isset($conn)) die('<title>Access Denied</title><i>This page cannot be accessed directly'); ?>
+<?php if(!isset($connection)) die('<title>Access Denied</title><i>This page cannot be accessed directly</i>'); ?>
  <!-- ShowLinks -->
   <div class="modal fade" id="ShowLinks" role="dialog">
     <div class="modal-dialog" id="_ShowLinks">

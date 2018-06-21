@@ -1,4 +1,4 @@
-<?php if(!isset($conn)) die('<title>Access Denied</title><i>This page cannot be accessed directly'); ?>  
+<?php if(!isset($connection)) die('<title>Access Denied</title><i>This page cannot be accessed directly</i>'); ?>  
   <div id="alert" class="<?php echo ClassAnimated ?> bounceInDown">
        <div class="row"> 	  
             <div class="col-xs-12" id="msg"> 		
