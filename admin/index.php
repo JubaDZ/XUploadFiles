@@ -137,7 +137,7 @@ print '<pre style="text-align: left;direction: ltr; ">' . print_r(get_defined_va
   <link rel="icon" type="image/png" href="../assets/css/images/favicon.png"/>
   <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
-  <link href="../includes/styles.php" rel="stylesheet" type="text/css">
+  <!--<link href="../includes/styles.php" rel="stylesheet" type="text/css">-->
   <link rel="stylesheet" type="text/css" href="../assets/css/fontello.min.css">
   <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap-toggle.min.css">  
   <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap-checkbox.min.css">
@@ -217,7 +217,7 @@ print '<pre style="text-align: left;direction: ltr; ">' . print_r(get_defined_va
   <script src="../assets/js/bootstrap-show-password.min.js" type="text/javascript"></script>
   <script src="../assets/js/bootstrap-maxlength.min.js" type="text/javascript"></script>
   <script src="../assets/js/mediaelement-and-player.min.js" type="text/javascript"></script>
-  
+  <script src="../assets/js/base64.min.js" type="text/javascript"></script>
   <!--
   <?php if(!IsIeBrowser()){ ?>  
   <script src="../assets/js/audioplayer.min.js" type="text/javascript"></script>
