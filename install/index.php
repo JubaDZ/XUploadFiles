@@ -250,6 +250,7 @@ Sql_query("INSERT INTO `plans` (`name`, `gold`, `free`, `premium`, `register`) V
 ('maxUploads', '', '', '', ''),
 ('multiple', '', '', '', ''),
 ('deletelink', '', '', '', ''),
+('days_older', '', '', '', ''),
 ('enable_userfolder', '', '', '', '');");
 
 
@@ -922,18 +923,18 @@ $.ajax({
 	
 		 <div class="input-group">
       <span class="input-group-addon hidden-sml"><input name="thumbnail" type="checkbox" <?php if(thumbnail) echo ' checked' ?>> <?php echo $lang[172] ?></span>
-        <input type="text"  class="form-control" placeholder="<?php echo $lang[172] ?>" disabled>
+        <input type="text"  class="form-control" placeholder="<?php echo $lang[258].$lang[172] ?>" disabled>
     </div>
 	
 	
 	 <div class="input-group">
       <span class="input-group-addon"><input name="register" type="checkbox" <?php if(register) echo ' checked' ?>> <?php echo $lang[55] ?></span>
-        <input type="text"  class="form-control" placeholder="<?php echo $lang[55] ?>" disabled>
+        <input type="text"  class="form-control" placeholder="<?php echo $lang[258].$lang[55] ?>" disabled>
     </div>
 	
 	 <div class="input-group">
       <span class="input-group-addon"><input name="enable_userfolder" type="checkbox" <?php if(enable_userfolder) echo ' checked' ?>> <?php echo $lang[65] ?></span>
-        <input type="text"  class="form-control" placeholder="<?php echo $lang[65] ?>" disabled>
+        <input type="text"  class="form-control" placeholder="<?php echo $lang[258].$lang[65] ?>" disabled>
     </div>
 	
 	 <div class="input-group">
@@ -943,32 +944,32 @@ $.ajax({
 	
 	 <div class="input-group">
       <span class="input-group-addon"><input name="directdownload" type="checkbox" <?php if(directdownload) echo ' checked' ?>> <?php echo $lang[51] ?></span>
-        <input type="text"  class="form-control" placeholder="<?php echo $lang[51] ?>" disabled>
+        <input type="text"  class="form-control" placeholder="<?php echo $lang[258].$lang[51] ?>" disabled>
     </div>
 	
 	<div class="input-group">
       <span class="input-group-addon"><input name="deletelink" type="checkbox" <?php if(deletelink) echo ' checked' ?>> <?php echo $lang[26] ?></span>
-        <input type="text"  class="form-control" placeholder="<?php echo $lang[26] ?>" disabled>
+        <input type="text"  class="form-control" placeholder="<?php echo $lang[258].$lang[26] ?>" disabled>
     </div>
 	
     <div class="input-group">
       <span class="input-group-addon"><input name="statistics" type="checkbox" <?php if(statistics) echo ' checked' ?>> <?php echo $lang[28] ?></span>
-        <input type="text"  class="form-control" placeholder="<?php echo $lang[28] ?>" disabled>
+        <input type="text"  class="form-control" placeholder="<?php echo $lang[258].$lang[28] ?>" disabled>
     </div>
 	
 	<div class="input-group">
       <span class="input-group-addon"><input name="multiple" type="checkbox" <?php if(multiple) echo ' checked' ?>> <?php echo $lang[248] ?></span>
-        <input type="text"  class="form-control" placeholder="<?php echo $lang[248] ?>" disabled>
+        <input type="text"  class="form-control" placeholder="<?php echo $lang[258].$lang[248] ?>" disabled>
     </div>
 	
 	  <div class="input-group">
       <span class="input-group-addon"><input name="EnableComments" type="checkbox" <?php if(EnableComments) echo ' checked' ?>> <?php echo $lang[240] ?></span>
-        <input type="text"  class="form-control" placeholder="<?php echo $lang[240] ?>" disabled>
+        <input type="text"  class="form-control" placeholder="<?php echo $lang[258].$lang[240] ?>" disabled>
     </div>
 	
 	<div class="input-group">
       <span class="input-group-addon"><input name="EnableCaptcha" type="checkbox" <?php if(EnableCaptcha) echo ' checked' ?>> <?php echo $lang[254] ?></span>
-        <input type="text"  class="form-control" placeholder="<?php echo $lang[254] ?>" disabled>
+        <input type="text"  class="form-control" placeholder="<?php echo $lang[258].$lang[254] ?>" disabled>
     </div>
 	
 	</div> <!-- tab-permissions -->
