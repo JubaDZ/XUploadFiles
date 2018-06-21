@@ -1,4 +1,4 @@
-<?php if(!isset($conn)) die('<title>Access Denied</title><i>This page cannot be accessed directly'); ?>
+<?php if(!isset($connection)) die('<title>Access Denied</title><i>This page cannot be accessed directly</i>'); ?>
 <?php /*header("Content-type: text/javascript; charset: UTF-8");*/?>
 <!-- كل الشكر لأمون العظيم -->
 <script type="text/javascript">
@@ -272,6 +272,7 @@ $("#EditUserResults").html("<code> "+PleaseWait+"</code>");
 $.get("ajax/index.php?planinfo="+id, function(data, status){
 if(status=='success') {
 	
+	//alert(JSON.stringify(   data  ));
 $("#EditPlanResults").html(""); 	
 
 (data.directdownload=='1') ? $('#plan_directdownload').prop('checked', true) : $('#plan_directdownload').prop('checked', false);
@@ -469,24 +470,28 @@ $('#page_name').on('change', function () {
 	 $('#publicity_content').summernote("code","");  
 	 $('#publicity_title').val("");
 	 $("#PublicityResults").html("<code> "+PleaseWait+"</code>"); 
+	 (page_name=='ads_google') ? $('#publicity_content').summernote('codeview.activate') : $('#publicity_content').summernote('codeview.deactivate');
+	 
+				
 	 
 	 $.get("ajax/index.php?getpublicity="+page_name, function(data, status){
 		 if(status=='success')
 		 {
+			
+			
+			 $('#publicity_content').summernote('enable');
+			 $("#publicity_title").removeAttr('disabled');
 			 $("#PublicityResults").html(""); 
 			 $('#publicity_content').summernote("code",data.content);  
 			 $('#publicity_title').val(data.title);
-			 $('#publicity_content').summernote('enable');
-			 $("#publicity_title").removeAttr('disabled');
+			
 			 if(page_name=='ads_google')
 			 {
 				$('#publicity_title').val('');
 				$("#publicity_title").attr('disabled','disabled');
-				
-			 }
-				 
+			 } 
 			 
-			 
+			  
 		 }
 		
 	});
@@ -517,9 +522,10 @@ $('#page_name').on('change', function () {
 		
 	if(IsGetSettings)
 	{
-		
+	
 	$('.settings').checkbox('update');
 	$('.editor').summernote(options);
+	/*	
 	$('#CodeColor').colorselector({callback: function (value, color, title) {
 		
 
@@ -555,7 +561,8 @@ $('#page_name').on('change', function () {
 	$('#CodeColor').colorselector('setColor', $("#CodeColorValue").val());
 	$('#PanelColor').colorselector('setColor', $("#PanelColorValue").val());
 	$('#BodyColor').colorselector('setColor', $("#BodyColorValue").val());
-		
+	*/
+
 	
 	if(IsClose)
 		$('#closemsg').summernote('enable');
@@ -568,7 +575,7 @@ $('#page_name').on('change', function () {
 	else
 		$('#closemsg').summernote('enable');
 	});
-		
+
 	}
 	//if ( $('audio').length )
 		

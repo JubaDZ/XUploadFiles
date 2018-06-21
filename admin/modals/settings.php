@@ -1,4 +1,4 @@
-<?php if(!isset($conn)) die('<title>Access Denied</title><i>This page cannot be accessed directly'); ?>
+<?php if(!isset($connection)) die('<title>Access Denied</title><i>This page cannot be accessed directly</i>'); ?>
  
  <!-- SettingsModal -->
     <ul class="nav nav-tabs">
@@ -6,7 +6,7 @@
 	  <li><a href="#permissions" data-toggle="tab"><?php echo $lang[250] ?></a></li>
 	  <li><a href="#maxi" data-toggle="tab"><?php echo $lang[24] ?></a></li>
       <li><a href="#terms" data-toggle="tab"><?php echo $lang[152].' ...' ?></a></li>
-	  <li><a href="#style" data-toggle="tab"><?php echo $lang[70] ?></a></li>
+	 <!-- <li><a href="#style" data-toggle="tab"><?php echo $lang[70] ?></a></li>-->
 	  <li><a href="#closesite" data-toggle="tab"><?php echo $lang[64] ?></a></li>
     </ul>
     
@@ -76,19 +76,19 @@
 	 
 	 <div class="input-group">
       <span class="input-group-addon"><?php echo $lang[172] ?></span>
-        <input type="text"  class="form-control hidden-sml" placeholder="<?php echo $lang[172] ?>" disabled>
+        <input type="text"  class="form-control hidden-sml" placeholder="<?php echo $lang[258].$lang[172] ?>" disabled>
 		<span class="input-group-addon" style="min-width: 15px;text-align: left;"><input name="thumbnail" class="settings" type="checkbox" <?php if(thumbnail) echo ' checked' ?>> </span>
     </div>
 	
 	 <div class="input-group">
       <span class="input-group-addon"> <?php echo $lang[55] ?></span>
-        <input type="text"  class="form-control hidden-sml" placeholder="<?php echo $lang[55] ?>" disabled>
+        <input type="text"  class="form-control hidden-sml" placeholder="<?php echo $lang[258].$lang[55] ?>" disabled>
 		<span class="input-group-addon" style="min-width: 15px;text-align: left;"><input name="register" class="settings" type="checkbox" <?php if(register) echo ' checked' ?>></span>
     </div>
 	
 	 <div class="input-group">
       <span class="input-group-addon"> <?php echo $lang[65] ?></span>
-        <input type="text"  class="form-control hidden-sml" placeholder="<?php echo $lang[65] ?>" disabled>
+        <input type="text"  class="form-control hidden-sml" placeholder="<?php echo $lang[258].$lang[65] ?>" disabled>
 		<span class="input-group-addon" style="min-width: 15px;text-align: left;"><input name="enable_userfolder" class="settings" type="checkbox" <?php if(enable_userfolder) echo ' checked' ?>></span>
     </div>
 	
@@ -100,26 +100,26 @@
 	
 	<div class="input-group">
       <span class="input-group-addon"> <?php echo $lang[51] ?></span>
-        <input type="text"  class="form-control hidden-sml" placeholder="<?php echo $lang[51] ?>" disabled>
+        <input type="text"  class="form-control hidden-sml" placeholder="<?php echo $lang[258].$lang[51] ?>" disabled>
 		<span class="input-group-addon" style="min-width: 15px;text-align: left;"><input name="directdownload" class="settings" type="checkbox" <?php if(directdownload) echo ' checked' ?>></span>
     </div>
 	
 	<div class="input-group">
       <span class="input-group-addon"> <?php echo $lang[26] ?></span>
-        <input type="text"  class="form-control hidden-sml" placeholder="<?php echo $lang[26] ?>" disabled>
+        <input type="text"  class="form-control hidden-sml" placeholder="<?php echo $lang[258].$lang[26] ?>" disabled>
 		<span class="input-group-addon" style="min-width: 15px;text-align: left;"><input name="deletelink" class="settings" type="checkbox" <?php if(deletelink) echo ' checked' ?>></span>
     </div>
 	
 	<div class="input-group">
       <span class="input-group-addon"> <?php echo $lang[248] ?></span>
-        <input type="text"  class="form-control hidden-sml" placeholder="<?php echo $lang[248] ?>" disabled>
+        <input type="text"  class="form-control hidden-sml" placeholder="<?php echo $lang[258].$lang[248] ?>" disabled>
 		<span class="input-group-addon" style="min-width: 15px;text-align: left;"><input name="multiple" class="settings" type="checkbox" <?php if(multiple) echo ' checked' ?>></span>
     </div>
 	
 	
 	<div class="input-group">
       <span class="input-group-addon"> <?php echo $lang[28] ?></span>
-        <input type="text"  class="form-control hidden-sml" placeholder="<?php echo $lang[28] ?>" disabled>
+        <input type="text"  class="form-control hidden-sml" placeholder="<?php echo $lang[258].$lang[28] ?>" disabled>
 		<span class="input-group-addon" style="min-width: 15px;text-align: left;"><input name="statistics" class="settings" type="checkbox" <?php if(statistics) echo ' checked' ?>></span>
     </div>
 	

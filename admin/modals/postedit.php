@@ -1,4 +1,4 @@
-<?php if(!isset($conn)) die('<title>Access Denied</title><i>This page cannot be accessed directly'); ?>
+<?php if(!isset($connection)) die('<title>Access Denied</title><i>This page cannot be accessed directly</i>'); ?>
 <form id="publicity_form" role="form" onsubmit="return false;">
 	   
 	   <div class="form-group" id="PublicityResults"> </div>
