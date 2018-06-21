@@ -101,11 +101,12 @@ if it's not present, don't show loader */
 	padding-right: 20px;
 }
 /*.panel{border:1px solid #ccc;}*/
-
+.UploadOptions{padding-bottom:15px;}
 #MainTitle{text-transform: uppercase;}
 #uploadIcon{font-size: 45px;margin-bottom:15px;white-space: nowrap;}
 #uploadLabel{}
-#logo{margin-bottom:-35px;}
+#logo{margin-bottom:-35px; border-top: 0px;}
+#logo img{padding:7px;}
 #poster{margin-bottom:15px;border-radius: 7px;}
 
 #alert{margin-top:15px;position: relative; }
