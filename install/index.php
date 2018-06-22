@@ -59,7 +59,8 @@ $enable_userfolder =  isset($_POST['enable_userfolder']) ?  1 : 0 ;
 $statistics  = isset($_POST['statistics']) ?  1 : 0 ;
 $thumbnail =  isset($_POST['thumbnail']) ?  1 : 0 ;
 $multiple  = isset($_POST['multiple']) ?  1 : 0 ;
-
+$deletelink = isset($_POST['deletelink']) ?  1 : 0 ;
+	
 $folderupload = protect($_POST['folderupload']);
 $prefixname   = protect($_POST['prefixname']);
 $extensions   = protect($_POST['extensions']);
@@ -318,7 +319,8 @@ Sql_query("INSERT INTO `settings` (`name`, `value`) VALUES ('speed', '$speed');"
 Sql_query("INSERT INTO `settings` (`name`, `value`) VALUES ('days_older', '$days_older');");
 Sql_query("INSERT INTO `settings` (`name`, `value`) VALUES ('maxUploads', '$maxUploads');");
 Sql_query("INSERT INTO `settings` (`name`, `value`) VALUES ('multiple', '$multiple');");
-
+Sql_query("INSERT INTO `settings` (`name`, `value`) VALUES ('deletelink', '$deletelink');");
+	
 //Sql_query("INSERT INTO `folders` (`userId`, `folderName`, `isPublic`, `accessPassword`, `date_added`) VALUES ( '0', '$folderupload', '1', '', '$date');");
 
 /*-- Dumping data for table `users`*/
@@ -442,7 +444,7 @@ $host_base = protect($_POST['host_base']);
 
 $conn =  mysqli_connect($host , $host_user, $host_pass);
 if($conn)
-	Sql_query("CREATE DATABASE IF NOT EXISTS ".$host_base);
+	mysqli_query($conn,"CREATE DATABASE IF NOT EXISTS ".$host_base);
 
 if($fp = fopen('../includes/config.php','w')){
 	$content = "<?php
@@ -884,6 +886,11 @@ $.ajax({
 	<div class="input-group">
       <span class="input-group-addon"><input name="multiple" type="checkbox" <?php if(multiple) echo ' checked' ?>> <?php echo $lang[248] ?></span>
         <input type="text"  class="form-control" placeholder="<?php echo $lang[248] ?>" disabled>
+    </div>
+	
+	<div class="input-group">
+      <span class="input-group-addon"><input name="deletelink" type="checkbox" <?php if(deletelink) echo ' checked' ?>> <?php echo $lang[26] ?></span>
+        <input type="text"  class="form-control" placeholder="<?php echo $lang[26] ?>" disabled>
     </div>
 	
 	 <div class="input-group">
