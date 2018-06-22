@@ -33,6 +33,7 @@ define('deletelink','1');
 define('EnableComments','1');
 define('EnableCaptcha','0');
 define('animated','1');
+define('deletelink','1');
 
 //define('dbprefix','db_');
 (!defined('dbhost')) ? define('dbhost','localhost'): '';
