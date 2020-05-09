@@ -320,7 +320,8 @@ Sql_query("INSERT INTO `settings` (`name`, `value`) VALUES ('days_older', '$days
 Sql_query("INSERT INTO `settings` (`name`, `value`) VALUES ('maxUploads', '$maxUploads');");
 Sql_query("INSERT INTO `settings` (`name`, `value`) VALUES ('multiple', '$multiple');");
 Sql_query("INSERT INTO `settings` (`name`, `value`) VALUES ('deletelink', '$deletelink');");
-	
+Sql_query("INSERT INTO `settings` (`name`, `value`) VALUES ('EnableCaptcha', '$EnableCaptcha');");
+Sql_query("INSERT INTO `settings` (`name`, `value`) VALUES ('animated', '$animated');");	
 //Sql_query("INSERT INTO `folders` (`userId`, `folderName`, `isPublic`, `accessPassword`, `date_added`) VALUES ( '0', '$folderupload', '1', '', '$date');");
 
 /*-- Dumping data for table `users`*/
