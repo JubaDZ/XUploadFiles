@@ -1,4 +1,4 @@
-<?php if(!isset($conn)) die('<title>Access Denied</title><i>This page cannot be accessed directly'); ?>
+<?php if(!isset($connection)) die('<title>Access Denied</title><i>This page cannot be accessed directly'); ?>
 <!-- <p><?php echo sitename() ?></p> -->   
 <form id="delete_reports_form" role="form" onsubmit="return false;">   
 <div class="table-responsive">     

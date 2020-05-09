@@ -1,4 +1,4 @@
-<?php if(!isset($conn)) die('<title>Access Denied</title><i>This page cannot be accessed directly'); ?>
+<?php if(!isset($connection)) die('<title>Access Denied</title><i>This page cannot be accessed directly'); ?>
 <?php
 
 	$nb_total              = num_rows(Sql_query("SELECT 1 FROM `stats`")) ;

@@ -1,4 +1,4 @@
-<?php if(!isset($conn)) die('<title>Access Denied</title><i>This page cannot be accessed directly'); ?>
+<?php if(!isset($connection)) die('<title>Access Denied</title><i>This page cannot be accessed directly'); ?>
 <!-- <p><?php echo SiteName() ?></p> -->   
 
 <form id="delete_files_form" role="form" onsubmit="return false;">  

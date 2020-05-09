@@ -1,4 +1,4 @@
-<?php if(!isset($conn)) die('<title>Access Denied</title><i>This page cannot be accessed directly'); ?>
+<?php if(!isset($connection)) die('<title>Access Denied</title><i>This page cannot be accessed directly'); ?>
 <div id="menu" class="col-sm-3 col-md-3">
 	<div class="collapse navbar-collapse" id="sideNavbar">
       <div class="panel-group" id="accordion">
