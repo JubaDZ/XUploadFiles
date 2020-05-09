@@ -225,6 +225,11 @@ $ispublic        = (isPost('ispublic') && (IsLogin||ApiLogin) ) ? (int)$_POST['i
 (defined('HashCode') && HashCode !== $code && !isGet('api') ) ? IePrintArray(array('success' => false, 'msg' => $lang[103].' / HashCode' ,'footerInfo'=> FooterInfo('..'.folderupload) )) : '' ;  
 ((IsLogin) && (UserSpaceLeft<=0))   ? IePrintArray(array('success' => false, 'msg' => $lang[173].' / '.$lang[117] ,'footerInfo'=> FooterInfo('..'.folderupload) )) : '' ;  
 
+if (in_array($ext , array('png' , 'jpg' ,'jpeg' , 'gif', 'bmp' ,'jpeg' , 'ico'))) 
+{
+	if (!is_image($_FILES["uploadfile"]["tmp_name"]))  
+	   IePrintArray(array('success' => false, 'msg' => $lang[127]  ,'StatsPanel'=> FooterInfo('..'.folderupload) )) ;  	
+}
 
 //if(Sql_file_exsist($_UploadFileName))
 	if(file_exists('..'. uploadDir.'/'.$_UploadFileName))
