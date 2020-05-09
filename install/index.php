@@ -322,6 +322,8 @@ Sql_query("INSERT INTO `settings` (`name`, `value`) VALUES ('multiple', '$multip
 Sql_query("INSERT INTO `settings` (`name`, `value`) VALUES ('deletelink', '$deletelink');");
 Sql_query("INSERT INTO `settings` (`name`, `value`) VALUES ('EnableCaptcha', '$EnableCaptcha');");
 Sql_query("INSERT INTO `settings` (`name`, `value`) VALUES ('animated', '$animated');");	
+Sql_query("INSERT INTO `settings` (`name`, `value`) VALUES ('EnableComments', '$EnableComments');");
+
 //Sql_query("INSERT INTO `folders` (`userId`, `folderName`, `isPublic`, `accessPassword`, `date_added`) VALUES ( '0', '$folderupload', '1', '', '$date');");
 
 /*-- Dumping data for table `users`*/
