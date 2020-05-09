@@ -190,7 +190,7 @@ $data['dates_totalpages']     = $dates_totalpages;
 $data['status'] = true;
 
 mysqli_free_result($result);
-mysqli_close($conn);
+mysqli_close($connection);
 PrintArray($data);
 
 
@@ -596,7 +596,7 @@ if ($result=Sql_query($sql))
 ($total==0) ? $data['error_msg'] = $lang[111] : $data['success_msg'] = $html ;
 $data['success_totalpages'] = $totalpages;
 mysqli_free_result($result);
-mysqli_close($conn);
+mysqli_close($connection);
 PrintArray($data);
 
 }
@@ -695,7 +695,7 @@ if ($result=Sql_query($sql))
 ($total==0) ? $data['error_msg'] = $lang[111] : $data['success_msg'] = $html ;
 $data['success_totalpages'] = $totalpages;
 mysqli_free_result($result);
-mysqli_close($conn);
+mysqli_close($connection);
 PrintArray($data);
 
 }
